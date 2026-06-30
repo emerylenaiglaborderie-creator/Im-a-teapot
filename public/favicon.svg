@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="#E05C60"/>
+  <polygon points="100,42 148,128 52,128" fill="white" opacity="0.9"/>
+  <polygon points="100,52 140,122 60,122" fill="#E05C60"/>
+  <rect x="94" y="72" width="12" height="32" rx="6" fill="white"/>
+  <circle cx="100" cy="116" r="6" fill="white"/>
+  <defs>
+    <path id="curve" d="M 20,100 A 80,80 0 0,0 180,100"/>
+  </defs>
+  <text font-family="'Courier New', monospace" font-size="14" fill="white" letter-spacing="1">
+    <textPath href="#curve" startOffset="10%">I'm a Teapot.</textPath>
+  </text>
+</svg>
