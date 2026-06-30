@@ -1,5 +1,13 @@
 # Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+  ▎ im-a-teapot is a web app to explore and learn HTTP status codes —
+   from the mundane 200 OK to the legendary 418 I'm a Teapot.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+  ▎ Browse all 35 codes across the five categories (1xx → 5xx),
+  search by code, name or description, and click any card to get a
+  full breakdown: what the code means, how to fix it, and where it
+  comes from.
+
+  ▎ Built with Vue 3, TypeScript and Vite. No external UI library —
+  fully custom animated interface with glassmorphism, a floating
+  teapot, and a card carousel.
