@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection.vue'
 import ErrorCarousel from './components/ErrorCarousel.vue'
 import ErrorModal from './components/ErrorModal.vue'
 import AboutSection from './components/AboutSection.vue'
+import QuizSection from './components/QuizSection.vue'
 import { httpErrors } from './data/httpErrors'
 import type { HttpError } from './data/httpErrors'
 
@@ -24,9 +25,10 @@ const filteredErrors = computed(() => {
 
 <template>
   <div id="app">
-    <HeroSection v-model="search" />
+    <HeroSection v-model="search" :results="filteredErrors" @select="selectedError = $event" />
     <ErrorCarousel :errors="filteredErrors" @select="selectedError = $event" />
     <ErrorModal :error="selectedError" @close="selectedError = null" />
+    <QuizSection />
     <AboutSection />
   </div>
 </template>

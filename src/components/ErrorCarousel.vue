@@ -8,11 +8,14 @@ const emit = defineEmits<{ select: [error: HttpError] }>()
 
 const activeIndex = ref(0)
 const sliderValue = ref(0)
+const animating = ref(false)
 
-// Reset when filtered list changes (search)
+// Reset + trigger pop animation when filtered list changes (search)
 watch(() => props.errors, () => {
   activeIndex.value = 0
   sliderValue.value = 0
+  animating.value = true
+  setTimeout(() => { animating.value = false }, 500)
 })
 
 watch(sliderValue, (val) => {
@@ -37,6 +40,12 @@ const visibleCards = computed(() => {
 
 function cardStyle(offset: number) {
   const abs = Math.abs(offset)
+
+  // Let CSS animation handle transform while popping in
+  if (offset === 0 && animating.value) {
+    return { zIndex: 10, opacity: 1 }
+  }
+
   const scale = abs === 0 ? 1 : abs === 1 ? 0.82 : 0.68
   const translateX = offset * 190
   const translateY = abs === 0 ? 0 : abs === 1 ? 30 : 55
@@ -77,7 +86,7 @@ function onKeydown(e: KeyboardEvent) {
         v-for="{ error, index, offset } in visibleCards"
         :key="error.code"
         class="card"
-        :class="{ active: offset === 0 }"
+        :class="{ active: offset === 0, animating: offset === 0 && animating }"
         :style="{
           ...cardStyle(offset),
           '--card-color': cardColor(error),
@@ -106,6 +115,12 @@ function onKeydown(e: KeyboardEvent) {
 @keyframes shimmer {
   0%   { left: -80%; }
   100% { left: 120%; }
+}
+
+@keyframes cardPop {
+  0%   { transform: translateX(0) translateY(0) scale(0.65); opacity: 0; }
+  65%  { transform: translateX(0) translateY(0) scale(1.06); opacity: 1; }
+  100% { transform: translateX(0) translateY(0) scale(1);    opacity: 1; }
 }
 
 @keyframes cardGlowPulse {
@@ -190,6 +205,11 @@ function onKeydown(e: KeyboardEvent) {
 .card.active {
   cursor: default;
   animation: cardGlowPulse 3s ease-in-out infinite;
+}
+
+.card.active.animating {
+  animation: cardPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+             cardGlowPulse 3s 0.5s ease-in-out infinite;
 }
 
 .card-code,
