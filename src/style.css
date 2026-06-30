@@ -10,12 +10,15 @@
   --mono: 'Courier New', Consolas, monospace;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   font-family: var(--sans);
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* Animated background blobs */
