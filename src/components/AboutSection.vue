@@ -6,7 +6,7 @@
       <h2 class="about-title">What is an HTTP status code?</h2>
       <p class="about-lead">
         Every time your browser talks to a server, the server replies with an
-        <strong>HTTP status code</strong> — a three-digit number that summarises the outcome
+        <strong>HTTP status code</strong> ; a three-digit number that summarises the outcome
         of the request.
       </p>
     </div>
@@ -25,7 +25,7 @@
         <h3>I'm a Teapot</h3>
         <p>
           Defined in RFC 2324 as an April Fools' joke in 1998, this code means a server refuses
-          to brew coffee because it is — and will always be — a teapot. It has since become
+          to brew coffee because it is ; and will always be ; a teapot. It has since become
           a symbol of web culture and a universal easter egg among developers.
         </p>
       </div>

@@ -12,7 +12,7 @@ export const httpErrors: HttpError[] = [
   {
     code: 100, name: 'Continue', category: '1xx',
     description: 'The server has received the request headers and the client should proceed to send the request body.',
-    fix: 'No action needed — this is an informational response. Ensure your client handles 1xx responses gracefully and continues sending the request body.',
+    fix: 'No action needed; this is an informational response. Ensure your client handles 1xx responses gracefully and continues sending the request body.',
     origin: 'Defined in RFC 7231 (HTTP/1.1 Semantics) by the IETF, June 2014.',
   },
   {
@@ -38,7 +38,7 @@ export const httpErrors: HttpError[] = [
   {
     code: 200, name: 'OK', category: '2xx',
     description: 'The request has succeeded. The meaning depends on the HTTP method used.',
-    fix: 'No fix needed — this is the standard success response.',
+    fix: 'No fix needed; this is the standard success response.',
     origin: 'Defined in RFC 7231 by the IETF. Present since HTTP/1.0 (RFC 1945, 1996).',
   },
   {

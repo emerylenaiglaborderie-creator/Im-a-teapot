@@ -118,7 +118,7 @@ function optionClass(code: number) {
               class="hint-reveal"
               :style="{ '--c': categoryColors[q.error.category] }"
             >
-              It was a <strong>{{ q.error.category }}</strong> —
+              It was a <strong>{{ q.error.category }}</strong> ;
               <strong>{{ q.error.code }} {{ q.error.name }}</strong>
             </div>
           </Transition>
